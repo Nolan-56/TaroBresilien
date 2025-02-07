@@ -1,18 +1,40 @@
+"""
+Fichier Cartes.py
+
+Permet de gerer les differentes cartes utilisees dans le jeu
+"""
 import pygame
 import os
 import sys
 
-CHEMIN_RESSOURCE = "image"
 
+
+CHEMIN_RESSOURCE = "image"
 def getRessource(ressource):
+    """Permet de gerer le chemin pour acceder aux images dans l'executable
+
+    Args:
+        ressource(str) : image que l'on souhaite acceder
+
+    Returns:
+        chemin de l'image    
+    """
     try:
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, CHEMIN_RESSOURCE) + "/" + ressource
 
-def valeur_image(val):
 
+def valeur_image(val):
+    """Permet d'associer chaque cartes a une valeur entiere.
+
+    Args:
+        val(str) : valeur de la carte qu'on souhaite avoir son chemin
+
+    Returns:
+        chemin de la carte 
+    """
     image = {
         "0" : getRessource("Demi_Valeur0.jpg"),
         "1" : getRessource("Demi_Valeur1.jpg"),
@@ -40,8 +62,5 @@ def valeur_image(val):
         "23" : getRessource("Demi_Valeur23.jpg")
     }
 
-
-
-   # return pygame.transform.rotate(pygame.transform.scale(pygame.image.load(image[val]), (150,150)), 0)
     return image[val]
 

@@ -1,3 +1,6 @@
+"""
+Fichier client.py
+"""
 import pygame
 import re
 from Network import Network
